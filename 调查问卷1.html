@@ -1,0 +1,1403 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XR技术在文化遗产传播中的应用与效果探索</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            position: relative;
+            min-height: 250px;
+            max-height: 400px;
+            margin-bottom: 1rem;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .slider-container {
+            margin: 20px 0;
+        }
+        
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <header class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white py-8 px-4 shadow-lg">
+        <div class="container mx-auto max-w-6xl">
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">XR技术在文化遗产传播中的应用与效果探索</h1>
+            <p class="text-lg opacity-90">交互式数据可视化与模拟分析平台</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto max-w-6xl px-4 py-8">
+        <!-- 引言部分 -->
+        <section class="mb-12 bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-4 text-indigo-700">探索XR技术如何改变文化遗产的传播方式</h2>
+            <p class="mb-4">随着XR(VR/AR/MR)技术的发展，文化遗产的展示与传播方式正在经历前所未有的变革。本交互式平台基于208位不同背景受访者的调查数据，通过可视化分析和模拟实验，探索XR技术在文化遗产传播中的应用效果、用户体验和发展潜力。</p>
+            
+            <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-100">
+                <h3 class="font-bold text-indigo-800 mb-2">🔍 探索问题</h3>
+                <p>XR技术如何影响人们对文化遗产的理解、兴趣和认同感？不同背景的用户对XR文化体验有何不同反应？哪些因素决定了XR文化遗产应用的成功？</p>
+            </div>
+        </section>
+
+        <!-- 主要交互区域 -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+            <!-- 左侧控制面板 -->
+            <div class="lg:col-span-1 bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-bold mb-4 text-indigo-700">模拟参数控制</h2>
+                
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">用户文化背景</label>
+                    <select id="culturalBackground" class="w-full p-2 border border-gray-300 rounded-md">
+                        <option value="all">全部背景</option>
+                        <option value="education">文化教育</option>
+                        <option value="museum">博物馆/文物</option>
+                        <option value="tech">科技IT</option>
+                        <option value="art">艺术设计</option>
+                        <option value="tourism">旅游</option>
+                        <option value="student">学生</option>
+                        <option value="other">其他</option>
+                    </select>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">XR体验类型</label>
+                    <select id="xrExperienceType" class="w-full p-2 border border-gray-300 rounded-md">
+                        <option value="all">全部体验</option>
+                        <option value="museum">虚拟博物馆参观</option>
+                        <option value="architecture">古建筑复原</option>
+                        <option value="history">历史场景重现</option>
+                        <option value="artifacts">文物3D展示</option>
+                        <option value="life">古代生活体验</option>
+                        <option value="crafts">传统工艺学习</option>
+                        <option value="sites">文化遗址探索</option>
+                    </select>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">XR技术质量因素</label>
+                    <div class="slider-container">
+                        <label class="block text-xs text-gray-600 mb-1">视觉效果质量</label>
+                        <input type="range" id="visualQuality" min="1" max="5" value="3" class="w-full">
+                        <div class="slider-label">
+                            <span class="text-xs">低</span>
+                            <span class="text-xs">高</span>
+                        </div>
+                    </div>
+                    
+                    <div class="slider-container">
+                        <label class="block text-xs text-gray-600 mb-1">历史准确性</label>
+                        <input type="range" id="historicalAccuracy" min="1" max="5" value="3" class="w-full">
+                        <div class="slider-label">
+                            <span class="text-xs">低</span>
+                            <span class="text-xs">高</span>
+                        </div>
+                    </div>
+                    
+                    <div class="slider-container">
+                        <label class="block text-xs text-gray-600 mb-1">交互体验</label>
+                        <input type="range" id="interactionExperience" min="1" max="5" value="3" class="w-full">
+                        <div class="slider-label">
+                            <span class="text-xs">低</span>
+                            <span class="text-xs">高</span>
+                        </div>
+                    </div>
+                    
+                    <div class="slider-container">
+                        <label class="block text-xs text-gray-600 mb-1">沉浸感</label>
+                        <input type="range" id="immersionLevel" min="1" max="5" value="3" class="w-full">
+                        <div class="slider-label">
+                            <span class="text-xs">低</span>
+                            <span class="text-xs">高</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="runSimulation" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition">
+                    运行模拟
+                </button>
+            </div>
+            
+            <!-- 右侧结果显示区域 -->
+            <div class="lg:col-span-2 bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-bold mb-4 text-indigo-700">模拟结果</h2>
+                
+                <div class="mb-4">
+                    <div class="flex border-b border-gray-200">
+                        <button class="tab-button py-2 px-4 font-medium border-b-2 border-indigo-500 text-indigo-600" data-tab="interest">兴趣变化</button>
+                        <button class="tab-button py-2 px-4 font-medium text-gray-500 hover:text-gray-700" data-tab="understanding">理解深度</button>
+                        <button class="tab-button py-2 px-4 font-medium text-gray-500 hover:text-gray-700" data-tab="identity">文化认同</button>
+                    </div>
+                    
+                    <div id="interest" class="tab-content active">
+                        <div class="my-4">
+                            <h3 class="text-lg font-medium text-gray-800 mb-2">XR体验对文化兴趣的影响</h3>
+                            <div class="chart-container">
+                                <canvas id="interestChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="understanding" class="tab-content">
+                        <div class="my-4">
+                            <h3 class="text-lg font-medium text-gray-800 mb-2">XR体验对文化理解的影响</h3>
+                            <div class="chart-container">
+                                <canvas id="understandingChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="identity" class="tab-content">
+                        <div class="my-4">
+                            <h3 class="text-lg font-medium text-gray-800 mb-2">XR体验对文化认同的影响</h3>
+                            <div class="chart-container">
+                                <canvas id="identityChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="text-lg font-medium text-gray-800 mb-2">模拟分析结果</h3>
+                    <div id="simulationResults" class="text-gray-700">
+                        请调整参数并运行模拟以查看结果。
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 数据可视化部分 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-indigo-700">调查数据分析</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- 用户背景分布 -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-lg font-medium text-gray-800 mb-4">受访者文化背景分布</h3>
+                    <div class="chart-container">
+                        <canvas id="backgroundChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- XR体验类型分布 -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-lg font-medium text-gray-800 mb-4">XR文化遗产体验类型</h3>
+                    <div class="chart-container">
+                        <canvas id="experienceTypeChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- XR技术表现评价 -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-lg font-medium text-gray-800 mb-4">XR技术在文化遗产展示中的表现</h3>
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- XR技术优势 -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-lg font-medium text-gray-800 mb-4">XR技术在文化遗产学习中的优势</h3>
+                    <div class="chart-container">
+                        <canvas id="advantagesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 发展前景部分 -->
+        <section class="mb-12 bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-4 text-indigo-700">XR文化遗产应用发展前景</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- 发展前景评价 -->
+                <div>
+                    <h3 class="text-lg font-medium text-gray-800 mb-4">用户对XR技术在文化遗产领域的发展前景评价</h3>
+                    <div class="chart-container">
+                        <canvas id="prospectChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- 付费意愿 -->
+                <div>
+                    <h3 class="text-lg font-medium text-gray-800 mb-4">用户对XR文化遗产体验的付费意愿</h3>
+                    <div class="chart-container">
+                        <canvas id="paymentChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6">
+                <h3 class="text-lg font-medium text-gray-800 mb-4">用户期望的XR文化遗产体验功能</h3>
+                <div class="chart-container">
+                    <canvas id="featuresChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 结论与建议 -->
+        <section class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-4 text-indigo-700">结论与建议</h2>
+            
+            <div id="conclusionContent">
+                <p class="mb-4">基于模拟结果和数据分析，我们得出以下结论：</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-indigo-50 p-4 rounded-lg">
+                        <h3 class="font-bold text-indigo-800 mb-2">XR技术的积极影响</h3>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>显著提升用户对文化遗产的兴趣（67.3%用户兴趣有所或大幅增加）</li>
+                            <li>增强文化认同感（71.15%用户认同感有所或显著增强）</li>
+                            <li>提高文化理解深度（71.63%用户了解程度有所或显著提升）</li>
+                            <li>促进文化遗产的国际传播（75.48%用户认为有一定或很大作用）</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-amber-50 p-4 rounded-lg">
+                        <h3 class="font-bold text-amber-800 mb-2">需要改进的方面</h3>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>多语言支持和文化背景解释（分别有52.88%和53.37%用户认为需要改进）</li>
+                            <li>内容丰富性和操作简便性（分别有47.8%和43.27%用户认为需要改进）</li>
+                            <li>交互体验（37.98%用户评价为一般，12.5%评价为较差）</li>
+                            <li>跨文化理解（45.19%用户认为需要一定文化背景才能理解）</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3 class="text-lg font-medium text-gray-800 mb-2">发展建议</h3>
+                <ol class="list-decimal pl-5 space-y-2 mb-4">
+                    <li><strong>优化用户体验</strong>：提高设备舒适度和操作简便性，降低技术使用门槛</li>
+                    <li><strong>增强文化解释</strong>：加强多语言支持和文化背景解释，促进跨文化理解</li>
+                    <li><strong>丰富交互方式</strong>：开发多样化的互动功能，如时间旅行体验、角色扮演和多人协作探索</li>
+                    <li><strong>平衡技术与内容</strong>：在追求技术创新的同时，确保历史准确性和文化内涵的传达</li>
+                    <li><strong>拓展应用场景</strong>：将XR技术应用到更多文化遗产保护与传播场景，如学校教育、旅游景区和文化活动</li>
+                </ol>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 px-4">
+        <div class="container mx-auto max-w-6xl text-center">
+            <p>© 2023 XR文化遗产传播研究项目 | 交互式数据可视化与模拟分析平台</p>
+        </div>
+    </footer>
+
+    <script>
+        // 全局变量存储图表实例
+        let charts = {};
+        
+        // 模拟数据
+        const surveyData = {
+            culturalBackground: {
+                'education': 14.42,
+                'museum': 10.58,
+                'tech': 17.79,
+                'art': 8.65,
+                'tourism': 5.29,
+                'student': 37.02,
+                'other': 6.25
+            },
+            experienceTypes: {
+                'museum': 49.04,
+                'architecture': 53.85,
+                'history': 45.19,
+                'artifacts': 53.85,
+                'life': 39.42,
+                'crafts': 27.88,
+                'sites': 40.38,
+                'other': 4.81
+            },
+            performance: {
+                'visual': [20.67, 40.87, 25.48, 5.29, 7.69],
+                'accuracy': [17.79, 30.29, 39.42, 4.33, 8.17],
+                'interaction': [14.42, 32.69, 37.98, 12.5, 2.4],
+                'immersion': [24.52, 39.42, 19.23, 12.98, 3.85]
+            },
+            advantages: {
+                'understanding': 44.23,
+                'interest': 47.12,
+                'memory': 39.42,
+                'interaction': 45.18,
+                'personalization': 38.46,
+                'sensory': 25.48,
+                'other': 2.88
+            },
+            interestChange: {
+                'increase_significantly': 27.4,
+                'increase_somewhat': 39.9,
+                'no_change': 17.31,
+                'decrease_somewhat': 11.54,
+                'decrease_significantly': 3.85
+            },
+            understandingLevel: {
+                'improve_significantly': 20.67,
+                'improve_somewhat': 50.96,
+                'no_change': 9.13,
+                'slightly_confused': 12.02,
+                'more_confused': 7.21
+            },
+            culturalIdentity: {
+                'strengthen_significantly': 31.73,
+                'strengthen_somewhat': 39.42,
+                'no_change': 16.83,
+                'weaken_somewhat': 6.73,
+                'weaken_significantly': 5.29
+            },
+            prospects: {
+                'very_bright': 35.58,
+                'bright': 38.94,
+                'average': 6.73,
+                'not_optimistic': 14.9,
+                'pessimistic': 3.85
+            },
+            paymentWillingness: {
+                'very_willing': 14.9,
+                'acceptable': 67.79,
+                'prefer_free': 14.42,
+                'not_willing': 2.88
+            },
+            desiredFeatures: {
+                'time_travel': 44.71,
+                'role_playing': 41.35,
+                'collaborative': 39.42,
+                'personalized': 40.42,
+                'social': 41.35,
+                'creative': 37.5,
+                'other': 1.92
+            }
+        };
+        
+        // 初始化函数
+        function initialize() {
+            try {
+                // 初始化标签页切换
+                initTabs();
+                
+                // 初始化图表
+                initCharts();
+                
+                // 添加事件监听器
+                document.getElementById('runSimulation').addEventListener('click', runSimulation);
+                
+                // 初始运行一次模拟
+                runSimulation();
+                
+                console.log("初始化完成");
+            } catch (error) {
+                console.error("初始化过程中发生错误:", error);
+            }
+        }
+        
+        // 初始化标签页
+        function initTabs() {
+            try {
+                const tabButtons = document.querySelectorAll('.tab-button');
+                const tabContents = document.querySelectorAll('.tab-content');
+                
+                tabButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        // 移除所有活动状态
+                        tabButtons.forEach(btn => {
+                            btn.classList.remove('border-indigo-500', 'text-indigo-600');
+                            btn.classList.add('text-gray-500');
+                        });
+                        
+                        tabContents.forEach(content => {
+                            content.classList.remove('active');
+                        });
+                        
+                        // 设置当前标签为活动状态
+                        button.classList.add('border-indigo-500', 'text-indigo-600');
+                        button.classList.remove('text-gray-500');
+                        
+                        const tabId = button.getAttribute('data-tab');
+                        document.getElementById(tabId).classList.add('active');
+                        
+                        // 重新渲染当前标签页的图表
+                        setTimeout(() => {
+                            if (tabId === 'interest' && charts.interestChart) {
+                                charts.interestChart.update();
+                            } else if (tabId === 'understanding' && charts.understandingChart) {
+                                charts.understandingChart.update();
+                            } else if (tabId === 'identity' && charts.identityChart) {
+                                charts.identityChart.update();
+                            }
+                        }, 100);
+                    });
+                });
+                
+                console.log("标签页初始化完成");
+            } catch (error) {
+                console.error("初始化标签页时发生错误:", error);
+            }
+        }
+        
+        // 初始化所有图表
+        function initCharts() {
+            try {
+                // 初始化背景分布图表
+                initBackgroundChart();
+                
+                // 初始化体验类型图表
+                initExperienceTypeChart();
+                
+                // 初始化性能评价图表
+                initPerformanceChart();
+                
+                // 初始化优势图表
+                initAdvantagesChart();
+                
+                // 初始化前景图表
+                initProspectChart();
+                
+                // 初始化付费意愿图表
+                initPaymentChart();
+                
+                // 初始化期望功能图表
+                initFeaturesChart();
+                
+                // 初始化模拟结果图表
+                initSimulationCharts();
+                
+                console.log("所有图表初始化完成");
+            } catch (error) {
+                console.error("初始化图表时发生错误:", error);
+            }
+        }
+        
+        // 初始化背景分布图表
+        function initBackgroundChart() {
+            try {
+                const ctx = document.getElementById('backgroundChart').getContext('2d');
+                
+                if (charts.backgroundChart) {
+                    charts.backgroundChart.destroy();
+                }
+                
+                charts.backgroundChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['文化教育', '博物馆/文物', '科技IT', '艺术设计', '旅游', '学生', '其他'],
+                        datasets: [{
+                            data: Object.values(surveyData.culturalBackground),
+                            backgroundColor: [
+                                '#4F46E5', '#7C3AED', '#2563EB', 
+                                '#0EA5E9', '#06B6D4', '#10B981', '#84CC16'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                                labels: {
+                                    boxWidth: 15,
+                                    font: {
+                                        size: 11
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.label}: ${context.raw}%`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+                
+                console.log("背景分布图表初始化完成");
+            } catch (error) {
+                console.error("初始化背景分布图表时发生错误:", error);
+            }
+        }
+        
+        // 初始化体验类型图表
+        function initExperienceTypeChart() {
+            try {
+                const ctx = document.getElementById('experienceTypeChart').getContext('2d');
+                
+                if (charts.experienceTypeChart) {
+                    charts.experienceTypeChart.destroy();
+                }
+                
+                charts.experienceTypeChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['虚拟博物馆', '古建筑复原', '历史场景', '文物3D展示', '古代生活', '传统工艺', '文化遗址', '其他'],
+                        datasets: [{
+                            label: '体验比例 (%)',
+                            data: Object.values(surveyData.experienceTypes),
+                            backgroundColor: '#4F46E5',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        indexAxis: 'y',
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                max: 60
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+                
+                console.log("体验类型图表初始化完成");
+            } catch (error) {
+                console.error("初始化体验类型图表时发生错误:", error);
+            }
+        }
+        
+        // 初始化性能评价图表
+        function initPerformanceChart() {
+            try {
+                const ctx = document.getElementById('performanceChart').getContext('2d');
+                
+                if (charts.performanceChart) {
+                    charts.performanceChart.destroy();
+                }
+                
+                charts.performanceChart = new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['视觉效果', '历史准确性', '交互体验', '沉浸感'],
+                        datasets: [
+                            {
+                                label: '非常好/较好',
+                                data: [
+                                    surveyData.performance.visual[0] + surveyData.performance.visual[1],
+                                    surveyData.performance.accuracy[0] + surveyData.performance.accuracy[1],
+                                    surveyData.performance.interaction[0] + surveyData.performance.interaction[1],
+                                    surveyData.performance.immersion[0] + surveyData.performance.immersion[1]
+                                ],
+                                backgroundColor: 'rgba(79, 70, 229, 0.2)',
+                                borderColor: 'rgba(79, 70, 229, 1)',
+                                borderWidth: 2,
+                                pointBackgroundColor: 'rgba(79, 70, 229, 1)'
+                            },
+                            {
+                                label: '一般',
+                                data: [
+                                    surveyData.performance.visual[2],
+                                    surveyData.performance.accuracy[2],
+                                    surveyData.performance.interaction[2],
+                                    surveyData.performance.immersion[2]
+                                ],
+                                backgroundColor: 'rgba(251, 191, 36, 0.2)',
+                                borderColor: 'rgba(251, 191, 36, 1)',
+                                borderWidth: 2,
+                                pointBackgroundColor: 'rgba(251, 191, 36, 1)'
+                            },
+                            {
+                                label: '较差/很差',
+                                data: [
+                                    surveyData.performance.visual[3] + surveyData.performance.visual[4],
+                                    surveyData.performance.accuracy[3] + surveyData.performance.accuracy[4],
+                                    surveyData.performance.interaction[3] + surveyData.performance.interaction[4],
+                                    surveyData.performance.immersion[3] + surveyData.performance.immersion[4]
+                                ],
+                                backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                                borderColor: 'rgba(239, 68, 68, 1)',
+                                borderWidth: 2,
+                                pointBackgroundColor: 'rgba(239, 68, 68, 1)'
+                            }
+                        ]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                min: 0,
+                                max: 70,
+                                ticks: {
+                                    stepSize: 20
+                                }
+                            }
+                        },
+                        plugins: {
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.dataset.label}: ${context.raw}%`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+                
+                console.log("性能评价图表初始化完成");
+            } catch (error) {
+                console.error("初始化性能评价图表时发生错误:", error);
+            }
+        }
+        
+        // 初始化优势图表
+        function initAdvantagesChart() {
+            try {
+                const ctx = document.getElementById('advantagesChart').getContext('2d');
+                
+                if (charts.advantagesChart) {
+                    charts.advantagesChart.destroy();
+                }
+                
+                charts.advantagesChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['增强理解深度', '提高学习兴趣', '记忆更加深刻', '提供互动体验', '个性化学习', '多感官参与', '其他'],
+                        datasets: [{
+                            label: '选择比例 (%)',
+                            data: Object.values(surveyData.advantages),
+                            backgroundColor: '#10B981',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 50
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+                
+                console.log("优势图表初始化完成");
+            } catch (error) {
+                console.error("初始化优势图表时发生错误:", error);
+            }
+        }
+        
+        // 初始化前景图表
+        function initProspectChart() {
+            try {
+                const ctx = document.getElementById('prospectChart').getContext('2d');
+                
+                if (charts.prospectChart) {
+                    charts.prospectChart.destroy();
+                }
+                
+                charts.prospectChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['非常光明', '比较光明', '一般', '不太乐观', '很不乐观'],
+                        datasets: [{
+                            data: Object.values(surveyData.prospects),
+                            backgroundColor: [
+                                '#10B981', '#34D399', '#FBBF24', 
+                                '#F59E0B', '#EF4444'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                                labels: {
+                                    boxWidth: 15,
+                                    font: {
+                                        size: 11
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.label}: ${context.raw}%`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+                
+                console.log("前景图表初始化完成");
+            } catch (error) {
+                console.error("初始化前景图表时发生错误:", error);
+            }
+        }
+        
+        // 初始化付费意愿图表
+        function initPaymentChart() {
+            try {
+                const ctx = document.getElementById('paymentChart').getContext('2d');
+                
+                if (charts.paymentChart) {
+                    charts.paymentChart.destroy();
+                }
+                
+                charts.paymentChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['很愿意付费', '适当付费可接受', '希望免费体验', '完全不愿付费'],
+                        datasets: [{
+                            data: Object.values(surveyData.paymentWillingness),
+                            backgroundColor: [
+                                '#4F46E5', '#818CF8', '#FBBF24', '#F87171'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                                labels: {
+                                    boxWidth: 15,
+                                    font: {
+                                        size: 11
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.label}: ${context.raw}%`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+                
+                console.log("付费意愿图表初始化完成");
+            } catch (error) {
+                console.error("初始化付费意愿图表时发生错误:", error);
+            }
+        }
+        
+        // 初始化期望功能图表
+        function initFeaturesChart() {
+            try {
+                const ctx = document.getElementById('featuresChart').getContext('2d');
+                
+                if (charts.featuresChart) {
+                    charts.featuresChart.destroy();
+                }
+                
+                charts.featuresChart = new Chart(ctx, {
+                    type: 'polarArea',
+                    data: {
+                        labels: ['时间旅行体验', '角色扮演互动', '多人协作探索', '个性化学习路径', '社交分享功能', '创作工具', '其他'],
+                        datasets: [{
+                            data: Object.values(surveyData.desiredFeatures),
+                            backgroundColor: [
+                                'rgba(79, 70, 229, 0.7)',
+                                'rgba(124, 58, 237, 0.7)',
+                                'rgba(37, 99, 235, 0.7)',
+                                'rgba(14, 165, 233, 0.7)',
+                                'rgba(6, 182, 212, 0.7)',
+                                'rgba(16, 185, 129, 0.7)',
+                                'rgba(132, 204, 22, 0.7)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                max: 50
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                                labels: {
+                                    boxWidth: 15,
+                                    font: {
+                                        size: 11
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.label}: ${context.raw}%`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+                
+                console.log("期望功能图表初始化完成");
+            } catch (error) {
+                console.error("初始化期望功能图表时发生错误:", error);
+            }
+        }
+        
+        // 初始化模拟结果图表
+        function initSimulationCharts() {
+            try {
+                // 兴趣变化图表
+                const interestCtx = document.getElementById('interestChart').getContext('2d');
+                
+                if (charts.interestChart) {
+                    charts.interestChart.destroy();
+                }
+                
+                charts.interestChart = new Chart(interestCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['大幅增加', '有所增加', '无变化', '略有减少', '明显减少'],
+                        datasets: [{
+                            label: '比例 (%)',
+                            data: Object.values(surveyData.interestChange),
+                            backgroundColor: [
+                                '#10B981', '#34D399', '#D1D5DB', 
+                                '#F59E0B', '#EF4444'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 50
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+                
+                // 理解深度图表
+                const understandingCtx = document.getElementById('understandingChart').getContext('2d');
+                
+                if (charts.understandingChart) {
+                    charts.understandingChart.destroy();
+                }
+                
+                charts.understandingChart = new Chart(understandingCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['显著提升', '有所提升', '基本无变化', '略有困惑', '更加困惑'],
+                        datasets: [{
+                            label: '比例 (%)',
+                            data: Object.values(surveyData.understandingLevel),
+                            backgroundColor: [
+                                '#10B981', '#34D399', '#D1D5DB', 
+                                '#F59E0B', '#EF4444'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 60
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+                
+                // 文化认同图表
+                const identityCtx = document.getElementById('identityChart').getContext('2d');
+                
+                if (charts.identityChart) {
+                    charts.identityChart.destroy();
+                }
+                
+                charts.identityChart = new Chart(identityCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['显著增强', '有所增强', '无明显变化', '略有削弱', '明显削弱'],
+                        datasets: [{
+                            label: '比例 (%)',
+                            data: Object.values(surveyData.culturalIdentity),
+                            backgroundColor: [
+                                '#10B981', '#34D399', '#D1D5DB', 
+                                '#F59E0B', '#EF4444'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 50
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+                
+                console.log("模拟结果图表初始化完成");
+            } catch (error) {
+                console.error("初始化模拟结果图表时发生错误:", error);
+            }
+        }
+        
+        // 运行模拟
+        function runSimulation() {
+            try {
+                // 获取用户选择的参数
+                const culturalBackground = document.getElementById('culturalBackground').value;
+                const xrExperienceType = document.getElementById('xrExperienceType').value;
+                const visualQuality = parseInt(document.getElementById('visualQuality').value);
+                const historicalAccuracy = parseInt(document.getElementById('historicalAccuracy').value);
+                const interactionExperience = parseInt(document.getElementById('interactionExperience').value);
+                const immersionLevel = parseInt(document.getElementById('immersionLevel').value);
+                
+                console.log("模拟参数:", {
+                    culturalBackground,
+                    xrExperienceType,
+                    visualQuality,
+                    historicalAccuracy,
+                    interactionExperience,
+                    immersionLevel
+                });
+                
+                // 计算模拟结果
+                const simulationResults = calculateSimulationResults(
+                    culturalBackground,
+                    xrExperienceType,
+                    visualQuality,
+                    historicalAccuracy,
+                    interactionExperience,
+                    immersionLevel
+                );
+                
+                // 更新模拟结果图表
+                updateSimulationCharts(simulationResults);
+                
+                // 更新模拟分析结果文本
+                updateSimulationText(simulationResults);
+                
+                console.log("模拟运行完成");
+            } catch (error) {
+                console.error("运行模拟时发生错误:", error);
+                document.getElementById('simulationResults').innerHTML = `
+                    <div class="bg-red-50 p-3 rounded-md text-red-700">
+                        <p>模拟运行出错，请检查参数设置后重试。</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // 计算模拟结果
+        function calculateSimulationResults(culturalBackground, xrExperienceType, visualQuality, historicalAccuracy, interactionExperience, immersionLevel) {
+            try {
+                // 基础影响因子
+                let interestFactor = 0;
+                let understandingFactor = 0;
+                let identityFactor = 0;
+                
+                // 技术质量影响
+                const qualityScore = (visualQuality + historicalAccuracy + interactionExperience + immersionLevel) / 4;
+                
+                // 根据技术质量调整基础因子
+                if (qualityScore >= 4) {
+                    interestFactor += 0.3;
+                    understandingFactor += 0.25;
+                    identityFactor += 0.3;
+                } else if (qualityScore >= 3) {
+                    interestFactor += 0.15;
+                    understandingFactor += 0.1;
+                    identityFactor += 0.15;
+                } else {
+                    interestFactor -= 0.1;
+                    understandingFactor -= 0.15;
+                    identityFactor -= 0.05;
+                }
+                
+                // 沉浸感对兴趣的特殊影响
+                interestFactor += (immersionLevel - 3) * 0.1;
+                
+                // 历史准确性对理解和认同的特殊影响
+                understandingFactor += (historicalAccuracy - 3) * 0.15;
+                identityFactor += (historicalAccuracy - 3) * 0.1;
+                
+                // 交互体验对理解的特殊影响
+                understandingFactor += (interactionExperience - 3) * 0.1;
+                
+                // 视觉效果对兴趣的特殊影响
+                interestFactor += (visualQuality - 3) * 0.1;
+                
+                // 根据文化背景调整
+                if (culturalBackground !== 'all') {
+                    if (culturalBackground === 'education' || culturalBackground === 'museum') {
+                        // 文化教育和博物馆背景的人对历史准确性更敏感
+                        understandingFactor += historicalAccuracy * 0.05;
+                        identityFactor += historicalAccuracy * 0.05;
+                    } else if (culturalBackground === 'tech') {
+                        // 科技背景的人对技术质量更敏感
+                        interestFactor += visualQuality * 0.05;
+                        interestFactor += interactionExperience * 0.05;
+                    } else if (culturalBackground === 'art') {
+                        // 艺术背景的人对视觉效果更敏感
+                        interestFactor += visualQuality * 0.1;
+                        identityFactor += visualQuality * 0.05;
+                    } else if (culturalBackground === 'student') {
+                        // 学生对互动体验更敏感
+                        interestFactor += interactionExperience * 0.1;
+                        understandingFactor += interactionExperience * 0.05;
+                    }
+                }
+                
+                // 根据体验类型调整
+                if (xrExperienceType !== 'all') {
+                    if (xrExperienceType === 'history' || xrExperienceType === 'life') {
+                        // 历史场景和古代生活体验对文化认同影响更大
+                        identityFactor += 0.15;
+                    } else if (xrExperienceType === 'architecture' || xrExperienceType === 'sites') {
+                        // 古建筑和文化遗址对理解影响更大
+                        understandingFactor += 0.15;
+                    } else if (xrExperienceType === 'crafts') {
+                        // 传统工艺学习对兴趣影响更大
+                        interestFactor += 0.2;
+                    }
+                }
+                
+                // 计算最终结果
+                // 将因子转换为百分比变化
+                const interestChange = calculateDistribution(interestFactor);
+                const understandingChange = calculateDistribution(understandingFactor);
+                const identityChange = calculateDistribution(identityFactor);
+                
+                // 计算总体评分
+                const overallScore = Math.min(100, Math.max(0, 50 + (interestFactor + understandingFactor + identityFactor) * 20));
+                
+                // 生成关键发现
+                const keyFindings = generateKeyFindings(
+                    culturalBackground,
+                    xrExperienceType,
+                    qualityScore,
+                    interestFactor,
+                    understandingFactor,
+                    identityFactor
+                );
+                
+                return {
+                    interestChange,
+                    understandingChange,
+                    identityChange,
+                    overallScore,
+                    keyFindings
+                };
+            } catch (error) {
+                console.error("计算模拟结果时发生错误:", error);
+                throw error;
+            }
+        }
+        
+        // 根据因子计算分布
+        function calculateDistribution(factor) {
+            try {
+                // 基础分布
+                let distribution = {
+                    positive_strong: 25,
+                    positive_moderate: 40,
+                    neutral: 20,
+                    negative_moderate: 10,
+                    negative_strong: 5
+                };
+                
+                // 根据因子调整分布
+                if (factor > 0) {
+                    // 正面因子，增加正面影响
+                    const shift = factor * 30;
+                    distribution.positive_strong += shift * 0.6;
+                    distribution.positive_moderate += shift * 0.4;
+                    distribution.neutral -= shift * 0.5;
+                    distribution.negative_moderate -= shift * 0.3;
+                    distribution.negative_strong -= shift * 0.2;
+                } else if (factor < 0) {
+                    // 负面因子，增加负面影响
+                    const shift = Math.abs(factor) * 30;
+                    distribution.positive_strong -= shift * 0.4;
+                    distribution.positive_moderate -= shift * 0.3;
+                    distribution.neutral -= shift * 0.3;
+                    distribution.negative_moderate += shift * 0.5;
+                    distribution.negative_strong += shift * 0.5;
+                }
+                
+                // 确保所有值都在合理范围内
+                for (let key in distribution) {
+                    distribution[key] = Math.min(70, Math.max(0, distribution[key]));
+                }
+                
+                // 归一化，确保总和为100
+                const total = Object.values(distribution).reduce((sum, val) => sum + val, 0);
+                for (let key in distribution) {
+                    distribution[key] = (distribution[key] / total) * 100;
+                }
+                
+                return distribution;
+            } catch (error) {
+                console.error("计算分布时发生错误:", error);
+                throw error;
+            }
+        }
+        
+        // 生成关键发现
+        function generateKeyFindings(culturalBackground, xrExperienceType, qualityScore, interestFactor, understandingFactor, identityFactor) {
+            try {
+                const findings = [];
+                
+                // 总体质量评价
+                if (qualityScore >= 4) {
+                    findings.push("高质量的XR体验显著提升了用户对文化遗产的兴趣、理解和认同感。");
+                } else if (qualityScore >= 3) {
+                    findings.push("中等质量的XR体验对用户的文化体验有一定积极影响。");
+                } else {
+                    findings.push("低质量的XR体验可能对用户的文化体验产生负面影响。");
+                }
+                
+                // 根据文化背景的特殊发现
+                if (culturalBackground !== 'all') {
+                    if (culturalBackground === 'education' || culturalBackground === 'museum') {
+                        findings.push("文化教育和博物馆背景的用户对历史准确性更为敏感，高准确性内容能显著提升其理解和认同。");
+                    } else if (culturalBackground === 'tech') {
+                        findings.push("科技背景的用户更关注技术实现质量，高质量的视觉效果和交互体验能显著提升其兴趣。");
+                    } else if (culturalBackground === 'art') {
+                        findings.push("艺术背景的用户对视觉表现更为敏感，精美的视觉效果能显著提升其兴趣和文化认同。");
+                    } else if (culturalBackground === 'student') {
+                        findings.push("学生用户对互动体验反应更为积极，良好的交互设计能显著提升其学习兴趣和理解。");
+                    }
+                }
+                
+                // 根据体验类型的特殊发现
+                if (xrExperienceType !== 'all') {
+                    if (xrExperienceType === 'history' || xrExperienceType === 'life') {
+                        findings.push("历史场景重现和古代生活体验对增强文化认同感特别有效。");
+                    } else if (xrExperienceType === 'architecture' || xrExperienceType === 'sites') {
+                        findings.push("古建筑复原和文化遗址探索对提升文化理解深度特别有效。");
+                    } else if (xrExperienceType === 'crafts') {
+                        findings.push("传统工艺学习体验对激发用户兴趣特别有效。");
+                    }
+                }
+                
+                // 根据各因子的强弱提供具体建议
+                const factors = [
+                    { name: "视觉效果", value: document.getElementById('visualQuality').value },
+                    { name: "历史准确性", value: document.getElementById('historicalAccuracy').value },
+                    { name: "交互体验", value: document.getElementById('interactionExperience').value },
+                    { name: "沉浸感", value: document.getElementById('immersionLevel').value }
+                ];
+                
+                // 找出最弱的因素
+                factors.sort((a, b) => a.value - b.value);
+                if (factors[0].value < 3) {
+                    findings.push(`改进${factors[0].name}可能是提升整体体验效果的关键。`);
+                }
+                
+                // 找出最强的因素
+                factors.sort((a, b) => b.value - a.value);
+                if (factors[0].value > 3) {
+                    findings.push(`${factors[0].name}是当前体验的优势，可以作为特色进一步强化。`);
+                }
+                
+                return findings;
+            } catch (error) {
+                console.error("生成关键发现时发生错误:", error);
+                throw error;
+            }
+        }
+        
+        // 更新模拟结果图表
+        function updateSimulationCharts(results) {
+            try {
+                // 更新兴趣变化图表
+                if (charts.interestChart) {
+                    charts.interestChart.data.datasets[0].data = [
+                        results.interestChange.positive_strong,
+                        results.interestChange.positive_moderate,
+                        results.interestChange.neutral,
+                        results.interestChange.negative_moderate,
+                        results.interestChange.negative_strong
+                    ];
+                    charts.interestChart.update();
+                }
+                
+                // 更新理解深度图表
+                if (charts.understandingChart) {
+                    charts.understandingChart.data.datasets[0].data = [
+                        results.understandingChange.positive_strong,
+                        results.understandingChange.positive_moderate,
+                        results.understandingChange.neutral,
+                        results.understandingChange.negative_moderate,
+                        results.understandingChange.negative_strong
+                    ];
+                    charts.understandingChart.update();
+                }
+                
+                // 更新文化认同图表
+                if (charts.identityChart) {
+                    charts.identityChart.data.datasets[0].data = [
+                        results.identityChange.positive_strong,
+                        results.identityChange.positive_moderate,
+                        results.identityChange.neutral,
+                        results.identityChange.negative_moderate,
+                        results.identityChange.negative_strong
+                    ];
+                    charts.identityChart.update();
+                }
+                
+                console.log("模拟结果图表更新完成");
+            } catch (error) {
+                console.error("更新模拟结果图表时发生错误:", error);
+                throw error;
+            }
+        }
+        
+        // 更新模拟分析结果文本
+        function updateSimulationText(results) {
+            try {
+                const resultsElement = document.getElementById('simulationResults');
+                
+                // 获取用户选择的参数名称
+                const culturalBackgroundSelect = document.getElementById('culturalBackground');
+                const culturalBackgroundText = culturalBackgroundSelect.options[culturalBackgroundSelect.selectedIndex].text;
+                
+                const xrExperienceTypeSelect = document.getElementById('xrExperienceType');
+                const xrExperienceTypeText = xrExperienceTypeSelect.options[xrExperienceTypeSelect.selectedIndex].text;
+                
+                // 生成结果文本
+                let resultHTML = `
+                    <div class="mb-4">
+                        <div class="flex items-center mb-2">
+                            <div class="w-24 text-sm text-gray-500">总体评分：</div>
+                            <div class="flex-1 bg-gray-200 rounded-full h-4">
+                                <div class="h-4 rounded-full ${results.overallScore >= 70 ? 'bg-green-500' : results.overallScore >= 50 ? 'bg-yellow-500' : 'bg-red-500'}" 
+                                    style="width: ${results.overallScore}%"></div>
+                            </div>
+                            <div class="ml-2 font-medium">${Math.round(results.overallScore)}%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-medium text-gray-800 mb-2">模拟结果分析</h4>
+                        <p class="text-sm text-gray-700 mb-2">
+                            基于当前参数设置，${culturalBackgroundText !== "全部背景" ? culturalBackgroundText + "背景的" : ""}用户在体验${xrExperienceTypeText !== "全部体验" ? xrExperienceTypeText : "XR文化遗产应用"}后：
+                        </p>
+                        <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
+                            <li>${Math.round(results.interestChange.positive_strong + results.interestChange.positive_moderate)}% 的用户文化兴趣有所或大幅增加</li>
+                            <li>${Math.round(results.understandingChange.positive_strong + results.understandingChange.positive_moderate)}% 的用户文化理解有所或显著提升</li>
+                            <li>${Math.round(results.identityChange.positive_strong + results.identityChange.positive_moderate)}% 的用户文化认同感有所或显著增强</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-medium text-gray-800 mb-2">关键发现</h4>
+                        <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
+                            ${results.keyFindings.map(finding => `<li>${finding}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+                
+                resultsElement.innerHTML = resultHTML;
+                
+                console.log("模拟分析结果文本更新完成");
+            } catch (error) {
+                console.error("更新模拟分析结果文本时发生错误:", error);
+                throw error;
+            }
+        }
+        
+        // 页面加载完成后初始化
+        window.addEventListener('load', initialize);
+        
+        // 窗口大小变化时重新调整图表
+        window.addEventListener('resize', function() {
+            try {
+                // 延迟执行以避免频繁调用
+                if (this.resizeTimeout) {
+                    clearTimeout(this.resizeTimeout);
+                }
+                
+                this.resizeTimeout = setTimeout(function() {
+                    // 更新所有图表
+                    for (let chartName in charts) {
+                        if (charts[chartName]) {
+                            charts[chartName].resize();
+                            charts[chartName].update();
+                        }
+                    }
+                    
+                    console.log("窗口大小变化，图表已重新调整");
+                }, 200);
+            } catch (error) {
+                console.error("窗口大小变化处理时发生错误:", error);
+            }
+        });
+    </script>
+<script>window.parent.postMessage({ action: "ready" }, "*"); 
+ 
+window.console = new Proxy(console, {
+  get(target, prop) {
+    if (['log', 'warn', 'error'].includes(prop)) {
+      return new Proxy(target[prop], {
+        apply(fn, thisArg, args) {
+          fn.apply(thisArg, args);
+          window.parent.postMessage({ action: 'console', 
+            type: prop, 
+            args: args.map((arg) => {
+              try {
+                return JSON.stringify(arg).replace(/^["']|["']$/g, '');
+              } catch (e) {
+                return arg;
+              }
+            }) 
+          }, '*');
+        }
+      });
+    }
+    return target[prop];
+  }
+});
+</script></body>
+</html>
